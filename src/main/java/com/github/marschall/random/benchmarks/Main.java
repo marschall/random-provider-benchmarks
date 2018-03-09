@@ -1,4 +1,4 @@
-package com.github.marschall.getrandom.benchmarks;
+package com.github.marschall.random.benchmarks;
 
 import static org.openjdk.jmh.results.format.ResultFormatType.TEXT;
 
@@ -17,10 +17,10 @@ public class Main {
    */
   public static void main(String[] args) throws RunnerException {
     Options options = new OptionsBuilder()
-            .include("com.github.marschall.getrandom.benchmarks.*")
-            .warmupIterations(3)
-            .measurementIterations(3)
-            .forks(3)
+            .include("com.github.marschall.random.benchmarks.*")
+            .warmupIterations(10)
+            .measurementIterations(10)
+            .forks(5)
             .resultFormat(TEXT)
             .threads(Integer.parseInt(args[0]))
             .output(args[1])

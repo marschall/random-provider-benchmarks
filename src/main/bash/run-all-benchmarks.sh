@@ -3,11 +3,17 @@
 set -e
 
 VERSION=0.1.1-SNAPSHOT
+GETRANDOM_VERSION=0.1.1
+RDRAND_VERSION=0.1.0-SNAPSHOT
+
 export VERSION
 
 extract_so() {
-  if [ ! -f libgetrandom-provider-${VERSION}.so ]; then
-    unzip -p target/getrandom-provider-benchmarks-${VERSION}.jar libgetrandom-provider-${VERSION}.so > target/libgetrandom-provider-${VERSION}.so
+  if [ ! -f libgetrandom-provider-${GETRANDOM_VERSION}.so ]; then
+    unzip -p target/random-provider-benchmarks-${VERSION}.jar libgetrandom-provider-${GETRANDOM_VERSION}.so > target/libgetrandom-provider-${GETRANDOM_VERSION}.so
+  fi
+  if [ ! -f librdrand-provider-${RDRAND_VERSION}.so ]; then
+    unzip -p target/random-provider-benchmarks-${VERSION}.jar librdrand-provider-${RDRAND_VERSION}.so > target/librdrand-provider-${RDRAND_VERSION}.so
   fi
 }
 

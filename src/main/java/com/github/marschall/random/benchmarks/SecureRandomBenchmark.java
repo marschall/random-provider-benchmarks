@@ -1,4 +1,4 @@
-package com.github.marschall.getrandom.benchmarks;
+package com.github.marschall.random.benchmarks;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
