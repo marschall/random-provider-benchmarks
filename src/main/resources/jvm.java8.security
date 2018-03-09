@@ -1,0 +1,3 @@
+# add the provider at the end
+security.provider.11=com.github.marschall.getrandom.GetrandomProvider
+security.provider.12=com.github.marschall.rdrand.RdrandProvider
