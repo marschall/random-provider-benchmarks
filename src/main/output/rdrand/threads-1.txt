@@ -1,0 +1,27 @@
+# JMH version: 1.20
+# VM version: JDK 1.8.0_162, VM 25.162-b12
+# VM invoker: /Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home/jre/bin/java
+# VM options: -XX:+UseParallelGC -Xmx4g -Xms4g -Djava.security.properties=src/main/resources/jvm.java8.security -Djava.library.path=/Users/marschall/git/rdrand-provider/target/nar/rdrand-provider-0.1.0-SNAPSHOT-x86_64-MacOSX-gpp-jni/lib/x86_64-MacOSX-gpp/jni
+# Warmup: 3 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+
+Benchmark                                     (algorithm)   Mode  Cnt     Score     Error   Units
+SecureRandomBenchmark.nextBoolean   NativePRNGNonBlocking  thrpt    9  5100.045 ± 765.643  ops/ms
+SecureRandomBenchmark.nextBoolean                  rdrand  thrpt    9  6098.029 ± 823.249  ops/ms
+SecureRandomBenchmark.nextBytes128  NativePRNGNonBlocking  thrpt    9    78.784 ±  10.451  ops/ms
+SecureRandomBenchmark.nextBytes128                 rdrand  thrpt    9  1222.312 ±  26.009  ops/ms
+SecureRandomBenchmark.nextBytes16   NativePRNGNonBlocking  thrpt    9   658.400 ±  13.222  ops/ms
+SecureRandomBenchmark.nextBytes16                  rdrand  thrpt    9  5369.199 ± 157.226  ops/ms
+SecureRandomBenchmark.nextBytes256  NativePRNGNonBlocking  thrpt    9    43.629 ±   0.580  ops/ms
+SecureRandomBenchmark.nextBytes256                 rdrand  thrpt    9   657.055 ±  25.900  ops/ms
+SecureRandomBenchmark.nextBytes32   NativePRNGNonBlocking  thrpt    9   340.419 ±   5.719  ops/ms
+SecureRandomBenchmark.nextBytes32                  rdrand  thrpt    9  3619.231 ±  96.537  ops/ms
+SecureRandomBenchmark.nextBytes64   NativePRNGNonBlocking  thrpt    9   173.489 ±   3.017  ops/ms
+SecureRandomBenchmark.nextBytes64                  rdrand  thrpt    9  2213.559 ±  67.411  ops/ms
+SecureRandomBenchmark.nextInt       NativePRNGNonBlocking  thrpt    9  2137.275 ±  28.146  ops/ms
+SecureRandomBenchmark.nextInt                      rdrand  thrpt    9  6425.280 ± 152.806  ops/ms
+SecureRandomBenchmark.nextLong      NativePRNGNonBlocking  thrpt    9  1064.071 ±  16.756  ops/ms
+SecureRandomBenchmark.nextLong                     rdrand  thrpt    9  3217.844 ±  57.828  ops/ms
+
