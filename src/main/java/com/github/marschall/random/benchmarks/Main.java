@@ -18,9 +18,9 @@ public class Main {
   public static void main(String[] args) throws RunnerException {
     Options options = new OptionsBuilder()
             .include("com.github.marschall.random.benchmarks.*")
-            .warmupIterations(10)
-            .measurementIterations(10)
-            .forks(5)
+            .warmupIterations(5)
+            .measurementIterations(5)
+            .forks(3)
             .resultFormat(TEXT)
             .threads(Integer.parseInt(args[0]))
             .output(args[1])

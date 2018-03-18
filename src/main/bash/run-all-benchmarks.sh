@@ -43,9 +43,9 @@ main() {
   ./src/main/bash/run-benchmarks-graal9.sh
   reaname_output graal-9
 
-#  export JAVA_HOME=/home/marschall/bin/java/openj9-9
-#  ./src/main/bash/run-benchmarks-j9.sh
-#  reaname_output ibm-9
+  export JAVA_HOME=/home/marschall/bin/java/openj9-9
+  ./src/main/bash/run-benchmarks-j9.sh
+  reaname_output ibm-9
 }
 
 main
