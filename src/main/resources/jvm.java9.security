@@ -1,3 +1,6 @@
 # add the provider at the end
-security.provider.13=getrandom
-security.provider.14=rdrand
+# we can't merge module-info.java
+# security.provider.13=getrandom
+# security.provider.14=rdrand
+security.provider.13=com.github.marschall.getrandom.GetrandomProvider
+security.provider.14=com.github.marschall.rdrand.RdrandProvider

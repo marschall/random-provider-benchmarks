@@ -2,6 +2,7 @@ package com.github.marschall.random.benchmarks;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.openjdk.jmh.annotations.Benchmark;
@@ -21,10 +22,15 @@ import com.github.marschall.rdrand.RdrandProvider;
 @State(Scope.Benchmark)
 public class SecureRandomBenchmark {
 
-  @Param({/* GetrandomProvider.GETURANDOM, */ "NativePRNGNonBlocking", RdrandProvider.ALGORITHM})
+  @Param({
+    GetrandomProvider.GETURANDOM,
+    "NativePRNGNonBlocking", // /dev/urandom
+    RdrandProvider.ALGORITHM,
+    "SHA1PRNG",
+    "LCG"}) // java.util.Random
   public String algorithm;
 
-  private SecureRandom secureRandom;
+  private Random random;
 
   private byte[] bytes16;
   private byte[] bytes32;
@@ -34,8 +40,13 @@ public class SecureRandomBenchmark {
 
   @Setup
   public void setup() throws NoSuchAlgorithmException {
-    this.secureRandom = SecureRandom.getInstance(this.algorithm);
-    this.secureRandom.nextBoolean(); // seed
+    if (this.algorithm.equals("LCG")) {
+      this.random = new Random();
+    } else {
+      this.random = SecureRandom.getInstance(this.algorithm);
+    }
+    this.random.setSeed(23L);
+    this.random.nextBoolean(); // seed
     this.bytes16 = new byte[16];
     this.bytes32 = new byte[32];
     this.bytes64 = new byte[64];
@@ -45,46 +56,46 @@ public class SecureRandomBenchmark {
 
   @Benchmark
   public boolean nextBoolean() {
-    return this.secureRandom.nextBoolean();
+    return this.random.nextBoolean();
   }
 
   @Benchmark
   public int nextInt() {
-    return this.secureRandom.nextInt();
+    return this.random.nextInt();
   }
 
   @Benchmark
   public long nextLong() {
-    return this.secureRandom.nextLong();
+    return this.random.nextLong();
   }
 
   @Benchmark
   public byte[] nextBytes16() {
-    this.secureRandom.nextBytes(this.bytes16);
+    this.random.nextBytes(this.bytes16);
     return this.bytes16;
   }
 
   @Benchmark
   public byte[] nextBytes32() {
-    this.secureRandom.nextBytes(this.bytes32);
+    this.random.nextBytes(this.bytes32);
     return this.bytes32;
   }
 
   @Benchmark
   public byte[] nextBytes64() {
-    this.secureRandom.nextBytes(this.bytes64);
+    this.random.nextBytes(this.bytes64);
     return this.bytes64;
   }
 
   @Benchmark
   public byte[] nextBytes128() {
-    this.secureRandom.nextBytes(this.bytes128);
+    this.random.nextBytes(this.bytes128);
     return this.bytes128;
   }
 
   @Benchmark
   public byte[] nextBytes256() {
-    this.secureRandom.nextBytes(this.bytes256);
+    this.random.nextBytes(this.bytes256);
     return this.bytes256;
   }
 

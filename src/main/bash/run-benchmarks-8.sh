@@ -14,9 +14,8 @@ run_benchark() {
 
 main() {
   run_benchark 1
-  run_benchark 2
   run_benchark 4
-  run_benchark 8
+  run_benchark 16
 }
 
 main
