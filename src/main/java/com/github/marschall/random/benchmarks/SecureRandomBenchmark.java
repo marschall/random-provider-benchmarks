@@ -14,8 +14,7 @@ import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 
-import com.github.marschall.getrandom.GetrandomProvider;
-import com.github.marschall.rdrand.RdrandProvider;
+import com.github.marschall.getentropy.GetentropyProvider;
 
 @BenchmarkMode(Mode.Throughput)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
@@ -23,9 +22,10 @@ import com.github.marschall.rdrand.RdrandProvider;
 public class SecureRandomBenchmark {
 
   @Param({
-    GetrandomProvider.GETURANDOM,
+//    GetrandomProvider.GETURANDOM,
     "NativePRNGNonBlocking", // /dev/urandom
-    RdrandProvider.ALGORITHM,
+//    RdrandProvider.ALGORITHM,
+    GetentropyProvider.NAME,
     "SHA1PRNG",
     "LCG"}) // java.util.Random
   public String algorithm;
@@ -54,17 +54,17 @@ public class SecureRandomBenchmark {
     this.bytes256 = new byte[256];
   }
 
-  @Benchmark
+//  @Benchmark
   public boolean nextBoolean() {
     return this.random.nextBoolean();
   }
 
-  @Benchmark
+//  @Benchmark
   public int nextInt() {
     return this.random.nextInt();
   }
 
-  @Benchmark
+//  @Benchmark
   public long nextLong() {
     return this.random.nextLong();
   }
@@ -75,25 +75,25 @@ public class SecureRandomBenchmark {
     return this.bytes16;
   }
 
-  @Benchmark
+//  @Benchmark
   public byte[] nextBytes32() {
     this.random.nextBytes(this.bytes32);
     return this.bytes32;
   }
 
-  @Benchmark
+//  @Benchmark
   public byte[] nextBytes64() {
     this.random.nextBytes(this.bytes64);
     return this.bytes64;
   }
 
-  @Benchmark
+//  @Benchmark
   public byte[] nextBytes128() {
     this.random.nextBytes(this.bytes128);
     return this.bytes128;
   }
 
-  @Benchmark
+//  @Benchmark
   public byte[] nextBytes256() {
     this.random.nextBytes(this.bytes256);
     return this.bytes256;

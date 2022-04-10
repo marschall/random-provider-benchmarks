@@ -1,0 +1,6 @@
+# JMHBenchmark                                    (algorithm)   Mode  Cnt      Score      Error   Units
+SecureRandomBenchmark.nextBytes16  NativePRNGNonBlocking  thrpt    3   3784.956 ± 3101.542  ops/ms
+SecureRandomBenchmark.nextBytes16             getentropy  thrpt    3   2927.920 ±  203.267  ops/ms
+SecureRandomBenchmark.nextBytes16               SHA1PRNG  thrpt    3   5137.729 ±  453.856  ops/ms
+SecureRandomBenchmark.nextBytes16                    LCG  thrpt    3  32055.840 ±  262.095  ops/ms
+

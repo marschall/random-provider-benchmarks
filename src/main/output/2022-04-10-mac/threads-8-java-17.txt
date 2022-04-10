@@ -1,0 +1,6 @@
+#Benchmark                                    (algorithm)   Mode  Cnt     Score     Error   Units
+SecureRandomBenchmark.nextBytes16  NativePRNGNonBlocking  thrpt    3  2250.233 ± 316.081  ops/ms
+SecureRandomBenchmark.nextBytes16             getentropy  thrpt    3  1518.943 ± 126.483  ops/ms
+SecureRandomBenchmark.nextBytes16               SHA1PRNG  thrpt    3  3029.626 ± 174.447  ops/ms
+SecureRandomBenchmark.nextBytes16                    LCG  thrpt    3  2645.854 ±  56.784  ops/ms
+

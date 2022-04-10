@@ -69,6 +69,11 @@
       <artifactId>rdrand-provider</artifactId>
       <version>0.1.0</version>
     </dependency>
+    <dependency>
+      <groupId>com.github.marschall</groupId>
+      <artifactId>getentropy-provider</artifactId>
+      <version>0.1.0-SNAPSHOT</version>
+    </dependency>
 
     <dependency>
       <groupId>org.openjdk.jmh</groupId>
